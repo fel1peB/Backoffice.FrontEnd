@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+body {
+    font-family: "Lato",  "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+}
+
+/* header */
+#nav-header{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 50px;
+}
+/* bootstrap */
+.page-link{
+    color: #333;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.bg-primary{
+    background-color:#42ACEE !important;
+    color: #fff;
+}

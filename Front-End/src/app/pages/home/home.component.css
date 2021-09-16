@@ -1,0 +1,16 @@
+#imglogo{
+    font-size: 10rem;
+}
+
+.masthead {
+    padding-top: calc(1rem + 20px);
+    padding-bottom: 5rem;
+  }
+  .masthead .masthead-heading {
+    font-size: 4rem;
+    line-height: 3.5rem;
+  }
+  .card > .card-subheading {
+    font-size: 5.5rem;
+    color: #fff;
+  }

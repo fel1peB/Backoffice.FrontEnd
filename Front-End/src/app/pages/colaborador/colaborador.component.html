@@ -1,0 +1,160 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="80%">Nome</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of listEmployee">
+                        <td>{{item.name}}</td>
+                        <td class="text-right">
+                            <button type="button" class="btn btn-secondary btn-sm mr-1"
+                                (click)="openModalTecnology(item.technologies)">
+                                <i class="bi bi-search"></i></button>
+                            <button type="button" class="btn btn-secondary btn-sm mr-1">
+                                <i class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-secondary btn-sm mr-2">
+                                <i class="bi bi-x-square"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <nav>
+                <ul class="pagination pagination-sm justify-content-end">
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">
+                            1
+                            <span class="sr-only">(current)</span>
+                        </span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<ng-template #modalDetalhesTechnology let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Tecnologias</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <table class="table table-sm">
+                        <thead class="thead-dark">
+                            <tr >
+                                <th width="80%">Nome</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of listTecnology">
+                                <td>{{item.name}}</td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-secondary btn-sm mr-1"
+                                        (click)="openModalSkill(item.skills)">
+                                        <i class="bi bi-search"></i></button>
+                                    <button type="button" class="btn btn-secondary btn-sm mr-1">
+                                        <i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-secondary btn-sm mr-2">
+                                        <i class="bi bi-x-square"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="modal.close()">Cancelar</button>
+        <button type="button" class="btn btn-outline-primary"
+            (click)="openModal({open: modalFormTecnology, modalSize:'lg', id:12})">Novo</button>
+    </div>
+</ng-template>
+
+<ng-template #modalDetalhesSkills let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Skills</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <table class="table table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th width="80%">Nome</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of listSkill"> 
+                                <td>{{item.description}}</td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-secondary btn-sm mr-1">
+                                        <i class="bi bi-pencil-square"></i></button>
+                                    <button type="button" class="btn btn-secondary btn-sm mr-2">
+                                        <i class="bi bi-x-square"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="modal.close()">Cancelar</button>
+    </div>
+</ng-template>
+
+<ng-template #modalFormTecnology let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Tecnologias Colaborador</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form [formGroup]="formTecnology" (ngSubmit)="salvarTecnology()" >
+        <div class="modal-body">
+            <div class="row">
+                <div class="form-group col-md-8">
+                  <label for="">Nome</label>
+                  <input type="text" name="name" id="name" class="form-control" placeholder="Nome"formControlName="name" >
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="timeWorked">Experiência</label>
+                    <div class="input-group">
+                        <input type="text" name="timeWorked" id="timeWorked" class="form-control" placeholder="Tempo trabalhado" formControlName="timeWorked" >
+                        <div class="input-group-append">
+                            <span class="input-group-text">mesês</span> 
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+        
+    </form>
+
+</ng-template>
+
